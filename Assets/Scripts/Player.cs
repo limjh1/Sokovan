@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameManager gameManager;
     public float speed = 10f;
     Rigidbody playerRigidbody;
 
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour
     }    
 
     void Update(){
+        if(gameManager.isGameOver){
+            return;
+        }
         //-1 ~ +1
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");

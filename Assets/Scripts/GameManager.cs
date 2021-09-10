@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
     }
     void Update() {        
+        if(Input.GetKeyDown(KeyCode.Space)){
+            SceneManager.LoadScene(0);
+        }
 
         if(isGameOver){
-            clearText.SetActive(true);
-            Time.timeScale = 0;
+            clearText.SetActive(true);  
             return;
         }     
         if(itemBoxes[0].isOveraped && itemBoxes[1].isOveraped && itemBoxes[2].isOveraped)
